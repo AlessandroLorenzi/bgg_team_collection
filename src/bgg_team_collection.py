@@ -22,7 +22,7 @@ def join_games(games):
                     'maxplaytime': game['stats'].get('@maxplaytime'),
                     'playingtime': game['stats'].get('@playingtime')
                 },
-                'rating': game['stats']['rating']['usersrated'],
+                'rating': game['stats']['rating']['bayesaverage']['@value'],
                 'family': []
             }
             try:
@@ -37,7 +37,7 @@ def join_games(games):
 
 
 if __name__ == '__main__':
-    team = ['alorenzi', 's2488', 'iltommy', 'deferu', 'Ruzzante']
+    team = ['alorenzi', 's2488', 'iltommy', 'deferu', 'Ruzzante', 'R4Zi€l']
     games = {}
     for person in team:
         bggc = BGGCollection(person)
