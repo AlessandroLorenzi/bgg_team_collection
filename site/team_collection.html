@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>CCCPlayers collection</title>
+  <meta name="description" content="Games from cccplayers">
+  <meta name="author" content="Alessandro Lorenzi">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+    <h1>CCCPlayers Collection</h1>
+
+    Giocatori <input type="text" id="players"/><br>
+    Proprietario: <select id="owner">
+        <option value=""></option>    
+        <option value="alorenzi">alorenzi</option>
+        <option value="s2488">s2488</option>
+        <option value="iltommy">iltommy</option>
+        <option value="deferu">deferu</option>
+        <option value="Ruzzante">Ruzzante</option>
+    </select>
+
+    <input type="button" value="Cerca" onclick="reload_games();">
+    <div id="games"></div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
