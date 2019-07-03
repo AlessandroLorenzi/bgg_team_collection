@@ -14,27 +14,35 @@
 <body>
     <h1>CCCPlayers Collection</h1>
     <div class="container">
-     <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Numero Giocatori</span>
-        </div>
-        <input type="text" class="form-control" placeholder="1 - 100" id="players" aria-label="Username" aria-describedby="basic-addon1" onkeyup="reload_games()">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Numero Giocatori</span>
       </div>
+      <input type="text" class="form-control" placeholder="1 - 100" id="players" aria-label="" aria-describedby="basic-addon1" onkeyup="reload_games()">
+    </div>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Proprietario</label>
-        </div>
-        <select class="custom-select" multiple="true" id="owner" >
-            <option value="alorenzi">alorenzi</option>
-            <option value="s2488">s2488</option>
-            <option value="iltommy">iltommy</option>
-            <option value="deferu">deferu</option>
-            <option value="Ruzzante">Ruzzante</option>
-            <option value="R4Zi€l">R4Zi€l</option>
-            <option value="Squin">Squin</option>
-        </select>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Nome gioco</span>
       </div>
+      <input type="text" class="form-control" placeholder="" id="gamename" aria-label="" aria-describedby="basic-addon1" onkeyup="reload_games()">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Proprietario</label>
+      </div>
+      <select class="custom-select" multiple="true" id="owner" >
+          <option value="alorenzi">alorenzi</option>
+          <option value="s2488">s2488</option>
+          <option value="iltommy">iltommy</option>
+          <option value="deferu">deferu</option>
+          <option value="Ruzzante">Ruzzante</option>
+          <option value="R4Zi€l">R4Zi€l</option>
+          <option value="Squin">Squin</option>
+      </select>
+    </div>
+
 
     <div id="games"></div>
     </div>

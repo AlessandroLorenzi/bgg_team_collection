@@ -51,6 +51,18 @@ function check_number_gamers(game){
           
 }
 
+function check_number_gamers(game){
+    var e = document.getElementById("gamename");
+    var gamename = e.value;
+
+    if (gamename.length <= 3){ return true; }
+    if (game.name.toUpperCase().indexOf(gamename.toUpperCase()) == -1 ){
+        return false
+    }
+
+    return  true
+}
+
 function put_games(game){
     var div_game = document.createElement("div");
     div_game.setAttribute('class', 'game')
