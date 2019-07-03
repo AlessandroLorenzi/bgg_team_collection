@@ -5,32 +5,42 @@
   <title>CCCPlayers collection</title>
   <meta name="description" content="Games from cccplayers">
   <meta name="author" content="Alessandro Lorenzi">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="css/bootstrap-multiselect.css">
 
 </head>
 
 <body>
     <h1>CCCPlayers Collection</h1>
+    <div class="container">
+     <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Numero Giocatori</span>
+        </div>
+        <input type="text" class="form-control" placeholder="1 - 100" id="players" aria-label="Username" aria-describedby="basic-addon1" onkeyup="reload_games()">
+      </div>
 
-    Giocatori <input type="text" id="players"/><br>
-    Proprietario: <select id="owner">
-        <option value=""></option>    
-        <option value="alorenzi">alorenzi</option>
-        <option value="s2488">s2488</option>
-        <option value="iltommy">iltommy</option>
-        <option value="deferu">deferu</option>
-        <option value="Ruzzante">Ruzzante</option>
-        <option value="R4Zi€l">R4Zi€l</option>
-    </select>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Proprietario</label>
+        </div>
+        <select class="custom-select" multiple="true" id="owner" >
+            <option value="alorenzi">alorenzi</option>
+            <option value="s2488">s2488</option>
+            <option value="iltommy">iltommy</option>
+            <option value="deferu">deferu</option>
+            <option value="Ruzzante">Ruzzante</option>
+            <option value="R4Zi€l">R4Zi€l</option>
+        </select>
+      </div>
 
-    <input type="button" value="Cerca" onclick="reload_games();">
     <div id="games"></div>
-
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/bootstrap-multiselect.js"></script>
 </body>
 </html>

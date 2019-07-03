@@ -1,4 +1,5 @@
 var games = []
+var selected_games = []
 var players = []
 
 function fetch_games (){
@@ -13,17 +14,12 @@ function fetch_games (){
 function reload_games(){
     document.getElementById("games").innerHTML= "";
 
-    var e = document.getElementById("owner");
-    var owner = e.options[e.selectedIndex].value;
-
-
     var e = document.getElementById("players");
     var players = parseInt(e.value);
     for (var i in games){
         game = games[i];
         if
-        ( (game['owner'] == owner || owner == '') &&
-          (!(players >0) || (parseInt(game['stats']['minplayers'])<= players && players <= parseInt(game['stats']['maxplayers'])) )
+        ( check_owner(game) && check_number_gamers(game)
         ){
             put_games(game);
         }
@@ -31,6 +27,29 @@ function reload_games(){
 
 }
 
+function check_owner(game){
+    var e = document.getElementById("owner");
+    if (e.selectedOptions.length == 0){
+        return true
+    }
+    for(var i=0; i < e.selectedOptions.length; i++){
+        owner = e.selectedOptions[i].value;
+        if (game['owner'] == owner) {
+            return true;
+        }
+    }
+    
+
+    return false;
+}
+
+function check_number_gamers(game){
+    var e = document.getElementById("players");
+    var players = e.value;
+
+    return  (!(players >0) || (parseInt(game['stats']['minplayers'])<= players && players <= parseInt(game['stats']['maxplayers'])) )
+          
+}
 
 function put_games(game){
     var div_game = document.createElement("div");
@@ -40,6 +59,10 @@ function put_games(game){
     div_game.innerHTML += "<p>";
     div_game.innerHTML += "Proprietario: "+ game['owner'] +"</br>";
     div_game.innerHTML += "Rating: "+ game['rating'] +"</br>";
+
+    for (var i = 0; i < game.family.length; i++ ){
+        div_game.innerHTML += "Tipologia: "+ game.family[i]+ "</br>";    
+    } 
     div_game.innerHTML += "</p>";
     document.getElementById("games").appendChild(div_game);  
 }
@@ -59,4 +82,10 @@ function sort_games_by_rate(){
     games = sorted_games;
 }
 
-fetch_games()
+
+$(document).ready(function() {
+    fetch_games()
+    $('#owner').multiselect({onChange:  function(element, checked) {
+            reload_games()
+    }} );
+});
