@@ -63,17 +63,23 @@ function check_gamename(game){
 
 function put_games(game){
     var div_game = document.createElement("div");
-    div_game.setAttribute('class', 'game')
-    div_game.innerHTML += "<h2>"+game['name']+"</h2>";
-    div_game.innerHTML += "<img src=\""+ game['thumbnail']+"\"/>";
-    div_game.innerHTML += "<p>";
-    div_game.innerHTML += "Proprietario: "+ game['owner'] +"</br>";
-    div_game.innerHTML += "Rating: "+ game['rating'] +"</br>";
+    div_game.setAttribute('class', 'game row')
+
+    content = ""
+    content += "<div class=\"col-lg-3\">"
+    content += "<img src=\""+ game['thumbnail']+"\"/>";
+    content += "</div>"
+    content += "<div class=\"col\">"
+    content += "<strong>"+game['name']+"</strong><br />";
+    content += "Proprietario: "+ game['owner'] +"</br>";
+    content += "Rating: "+ game['rating'] +"</br>";
 
     for (var i = 0; i < game.family.length; i++ ){
-        div_game.innerHTML += "Tipologia: "+ game.family[i]+ "</br>";    
+        content += "Tipologia: "+ game.family[i]+ "</br>";    
     } 
-    div_game.innerHTML += "</p>";
+    content += "</div>"
+    div_game.innerHTML = content
+
     document.getElementById("games").appendChild(div_game);  
 }
 
