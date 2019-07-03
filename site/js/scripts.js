@@ -55,7 +55,7 @@ function check_number_gamers(game){
     var e = document.getElementById("gamename");
     var gamename = e.value;
 
-    if (gamename.length <= 3){ return true; }
+    if (gamename.length < 3){ return true; }
     if (game.name.toUpperCase().indexOf(gamename.toUpperCase()) == -1 ){
         return false
     }
