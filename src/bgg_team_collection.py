@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.7
+#!/usr/bin/env python3
 from bggcollection import BGGCollection
 from pprint import pprint
 import json
@@ -37,7 +37,7 @@ def join_games(games):
 
 
 if __name__ == '__main__':
-    team = ['alorenzi', 's2488', 'iltommy', 'deferu', 'Ruzzante', 'R4Zi€l']
+    team = ['alorenzi', 's2488', 'iltommy', 'deferu', 'Ruzzante', 'R4Zi€l', 'Squin']
     games = {}
     for person in team:
         bggc = BGGCollection(person)
