@@ -19,7 +19,7 @@ function reload_games(){
     for (var i in games){
         game = games[i];
         if
-        ( check_owner(game) && check_number_gamers(game)
+        ( check_owner(game) && check_number_gamers(game) && check_gamename(name)
         ){
             put_games(game);
         }
@@ -38,8 +38,6 @@ function check_owner(game){
             return true;
         }
     }
-    
-
     return false;
 }
 
@@ -51,7 +49,7 @@ function check_number_gamers(game){
           
 }
 
-function check_number_gamers(game){
+function check_gamename(game){
     var e = document.getElementById("gamename");
     var gamename = e.value;
 
