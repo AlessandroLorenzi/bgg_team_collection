@@ -37,7 +37,7 @@ def join_games(games):
 
 
 if __name__ == '__main__':
-    team = ['alorenzi', 's2488', 'iltommy', 'deferu', 'Ruzzante', 'R4Zi€l', 'Squin']
+    team = ['alorenzi', 's2488', 'iltommy', 'deferu', 'Ruzzante', 'R4Zi€l', 'Squin', 'birillo_']
     games = {}
     for person in team:
         bggc = BGGCollection(person)
