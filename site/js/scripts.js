@@ -1,6 +1,7 @@
 var games = []
 var selected_games = []
 var players = []
+var counter = 0
 
 function fetch_games (){
     $.getJSON( "games.json", function( data ) {
@@ -13,6 +14,7 @@ function fetch_games (){
 
 function reload_games(){
     document.getElementById("games").innerHTML= "";
+    counter = 0
 
     var e = document.getElementById("players");
     var players = parseInt(e.value);
@@ -21,9 +23,12 @@ function reload_games(){
         if
         ( check_owner(game) && check_number_gamers(game) && check_gamename(game)
         ){
+            counter +=1;
             put_games(game);
         }
     }
+    console.log(counter)
+    document.getElementById('counter').innerHTML = counter;
 
 }
 
@@ -70,7 +75,7 @@ function put_games(game){
     content += "<img src=\""+ game['thumbnail']+"\"/>";
     content += "</div>"
     content += "<div class=\"col\">"
-    content += "<strong>"+game['name']+"</strong><br />";
+    content += "<strong><a target=\"_new\" href=\"https://boardgamegeek.com/boardgame/"+game['id']+"\">"+game['name']+"</a></strong><br />";
     content += "Proprietario: "+ game['owner'] +"</br>";
     content += "Rating: "+ game['rating'] +"</br>";
 
@@ -97,6 +102,7 @@ function sort_games_by_rate(){
     }
     games = sorted_games;
 }
+
 
 
 $(document).ready(function() {

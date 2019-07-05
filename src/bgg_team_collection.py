@@ -11,7 +11,7 @@ def join_games(games):
 
             pretty_game = {
                 'owner': user,
-                'id': game['@collid'],
+                'id': game['@objectid'],
                 'thumbnail': game['thumbnail'],
                 'name': game['name']['#text'],
                 'yearpublished': game.get('yearpublished'),
