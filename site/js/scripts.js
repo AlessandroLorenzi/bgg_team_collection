@@ -19,7 +19,7 @@ function reload_games(){
     for (var i in games){
         game = games[i];
         if
-        ( check_owner(game) && check_number_gamers(game) && check_gamename(name)
+        ( check_owner(game) && check_number_gamers(game) && check_gamename(game)
         ){
             put_games(game);
         }
