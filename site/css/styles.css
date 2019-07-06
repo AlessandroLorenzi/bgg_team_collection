@@ -1,3 +1,44 @@
 .game{
     margin-bottom: 1em;
 }
+
+.block {
+    text-align: center;
+    vertical-align: middle;
+}
+.circle {
+    border-radius: 70px;
+    height: 70px; 
+    width: 70px;
+    font-weight: bold;
+    display: table;
+    margin: 10px auto;
+}
+.circle p {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.gamethumb{
+     height: 8em;
+     overflow: hidden;
+}
+
+.gamethumb img{
+    width: 100%;
+}
+
+.ratinglow{
+    background: red;
+    color: white;
+}
+
+.ratingmedium{
+    background: yellow;
+    color: black;
+}
+
+.ratinghigh{
+    background: green;
+    color: white;
+}

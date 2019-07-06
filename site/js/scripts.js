@@ -71,13 +71,17 @@ function put_games(game){
     div_game.setAttribute('class', 'game row')
 
     content = ""
-    content += "<div class=\"col-lg-3\">"
+    content += "<div class=\"col-lg-2 gamethumb\" >"
     content += "<img src=\""+ game['thumbnail']+"\"/>";
+    content += "</div>"
+    content += "<div class=\"col-md-1 block\">"
+    content += "<div class=\"circle rating"+ rating_color(game['rating']) +"\" \">"
+    content += "<p>" +Number(parseFloat(game['rating']).toFixed(2)) + "</p>"
+    content += "</div>"
     content += "</div>"
     content += "<div class=\"col\">"
     content += "<strong><a target=\"_new\" href=\"https://boardgamegeek.com/boardgame/"+game['id']+"\">"+game['name']+"</a></strong><br />";
     content += "Proprietario: "+ game['owner'] +"</br>";
-    content += "Rating: "+ game['rating'] +"</br>";
 
     for (var i = 0; i < game.family.length; i++ ){
         content += "Tipologia: "+ game.family[i]+ "</br>";    
@@ -85,7 +89,17 @@ function put_games(game){
     content += "</div>"
     div_game.innerHTML = content
 
-    document.getElementById("games").appendChild(div_game);  
+    document.getElementById("games").appendChild(div_game); 
+
+    function rating_color(rating){
+        var frating = parseFloat(rating)
+        if (frating > 7.0) {
+            return "high"
+        } else if (frating > 6.0) {
+            return "medium"
+        }
+        return "low";
+    }
 }
 
 function sort_games_by_rate(){
