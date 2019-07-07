@@ -74,7 +74,7 @@ function put_games(game){
     content += "<div class=\"col-lg-2 gamethumb\" >"
     content += "<img src=\""+ game['thumbnail']+"\"/>";
     content += "</div>"
-    content += "<div class=\"col-md-1 block\">"
+    content += "<div class=\"col-lg-1 block\">"
     content += "<div class=\"circle rating"+ rating_color(game['rating']) +"\" \">"
     content += "<p>" +Number(parseFloat(game['rating']).toFixed(2)) + "</p>"
     content += "</div>"
