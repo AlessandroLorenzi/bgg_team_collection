@@ -10,7 +10,7 @@ def join_games(games):
         for game in games[user]['items']['item']:
 
             pretty_game = {
-                'owner': user,
+                'owner': [user],
                 'id': game['@objectid'],
                 'thumbnail': game['thumbnail'],
                 'name': game['name']['#text'],
@@ -34,6 +34,20 @@ def join_games(games):
             team_games.append(pretty_game)
     return team_games
         
+def unify_doubles(games):
+    unified = []
+    while len(games) >0:
+        game = games.pop()
+        found = False
+        for game2 in unified:
+            if game2['id'] == game['id']:
+                game2['owner'] = game['owner'] + game2['owner']
+                found = True
+        if not found: unified.append(game)
+    return unified
+
+                
+
 
 
 if __name__ == '__main__':
@@ -44,6 +58,7 @@ if __name__ == '__main__':
         bggc.retrive_collection()
         games[person] = bggc.games
 
-    team_games = json.dumps({'team': team, 'games': join_games(games)})
+    games = join_games(games)
+    games = unify_doubles(games)
+    team_games = json.dumps({'team': team, 'games': games})
     print(team_games)
-    

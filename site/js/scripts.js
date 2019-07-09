@@ -39,7 +39,7 @@ function check_owner(game){
     }
     for(var i=0; i < e.selectedOptions.length; i++){
         owner = e.selectedOptions[i].value;
-        if (game['owner'] == owner) {
+        if (game['owner'].indexOf(owner) > -1 ) {
             return true;
         }
     }
@@ -81,11 +81,8 @@ function put_games(game){
     content += "</div>"
     content += "<div class=\"col\">"
     content += "<strong><a target=\"_new\" href=\"https://boardgamegeek.com/boardgame/"+game['id']+"\">"+game['name']+"</a></strong><br />";
-    content += "Proprietario: "+ game['owner'] +"</br>";
-
-    for (var i = 0; i < game.family.length; i++ ){
-        content += "Tipologia: "+ game.family[i]+ "</br>";    
-    } 
+    content += "Proprietario: "+ game['owner'].join(', ') +"</br>";
+    content += "Tipologia: "+ game.family.join(', ')+ "</br>";    
     content += "</div>"
     div_game.innerHTML = content
 
